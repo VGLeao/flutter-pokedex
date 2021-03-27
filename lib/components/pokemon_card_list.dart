@@ -10,6 +10,8 @@ class PokemonCardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView(
+      shrinkWrap: true,
+      physics: ScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 10,

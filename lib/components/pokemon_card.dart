@@ -8,6 +8,7 @@ class PokemonCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 5,
       color: getBackgroundColor(pokemon.primaryType),
       child: Column(
         children: [
@@ -16,7 +17,7 @@ class PokemonCard extends StatelessWidget {
             height: 100,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("ditto.png"),
+                image: AssetImage("assets/ditto.png"),
               ),
             ),
           ),

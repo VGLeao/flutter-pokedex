@@ -6,8 +6,8 @@ import 'package:flutter_pokedex/models/pokemon.dart';
 
 class Home extends StatelessWidget {
   Future<PokemonList> getPokemons(BuildContext context) async {
-    String data =
-        await DefaultAssetBundle.of(context).loadString("/application.json");
+    String data = await DefaultAssetBundle.of(context)
+        .loadString("assets/application.json");
     final json = jsonDecode(data);
 
     return PokemonList.fromJson(json);
@@ -42,40 +42,38 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Text(
-            "Pokedex",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 32,
-              color: Colors.white,
+    return Scaffold(
+      backgroundColor: Colors.blueGrey[900],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Text(
+              "Pokedex",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 32,
+                color: Colors.white,
+              ),
             ),
-          ),
-          Text(
-            "Pokedex information for all the 151 pokemons (1st generation)",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-              color: Colors.white,
+            Text(
+              "Pokedex information for all the 151 pokemons (1st generation)",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+                color: Colors.white,
+              ),
             ),
-          ),
-          Text(
-            "*Pokémon and Pokémon character names are trademarks of Nintendo.",
-            style: TextStyle(
-              // fontWeight: FontWeight.bold,
-              // fontSize: 16,
-              color: Colors.white,
+            Text(
+              "*Pokémon and Pokémon character names are trademarks of Nintendo.",
+              style: TextStyle(
+                color: Colors.white,
+              ),
             ),
-          ),
-          Container(
-            height: 500,
-            child: PokemonCardList(
+            PokemonCardList(
               pokemons: this.pokemons,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
